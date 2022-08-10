@@ -1,0 +1,51 @@
+
+
+
+
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	
+	color: black;
+	text-transform: uppercase;
+}
+a {
+	transition: .3s all ease;
+	&, &:hover {
+		text-decoration: none!important;
+	}
+}
+.text-black {
+	color: #000;
+}
+.content {
+	padding: 7rem 0;
+}
+
+
+.thin-heading {
+	font-weight: 300;
+	font-size: 40px;
+}
+
+.col-form-label {
+	color: #000;
+}
+
+.custom-select {
+	&:active, &:focus {
+		outline: none;
+		box-shadow: none;
+		border-color: #000;
+	}
+}
+.heading {
+	color: #888;
+	letter-spacing: .05rem;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+
+
+

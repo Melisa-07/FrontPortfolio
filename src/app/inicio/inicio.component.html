@@ -1,0 +1,27 @@
+<div class="card" data-state="#about">
+    <div class="card-header">
+      <div class="card-cover"></div>
+      <img class="card-avatar" src="" alt="avatar" />
+      <h1 class="card-fullname">Melisa Alfonso</h1>
+      <h2 class="card-jobtitle">Full stack developer</h2>
+    </div>
+    <div class="card-main">
+      <div class="card-section is-active" id="about">
+        <div class="card-content">
+          <div class="card-subtitle">ACERCA DE MI</div>
+          <p class="card-desc">Mi nombre es Melisa, programadora full stack en progreso. Este es mi portfolio de presentación final.
+          </p>
+        </div>
+        <div class="card-social">
+        </div>
+      </div> 
+      <div class="card-buttons">
+        <button [routerLink]="['estudios']" data-section="#about" routerLinkActive="is-active">ESTUDIOS</button>
+        <button [routerLink]="['experiencia']" data-section="#experience" routerLinkActive="is-active">EXPERIENCIA LABORAL</button>
+        <button [routerLink]="['contacto']" data-section="#contact" routerLinkActive="is-active">CONTACTO</button>
+      </div>
+    </div>
+  </div>
+    
+    
+  
