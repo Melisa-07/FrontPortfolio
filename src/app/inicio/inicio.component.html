@@ -1,16 +1,15 @@
-<div class="card" data-state="#about">
+<div class="card" data-state="#about" *ngIf="usuario" >
     <div class="card-header">
       <div class="card-cover"></div>
-      <img class="card-avatar" src="" alt="avatar" />
-      <h1 class="card-fullname">Melisa Alfonso</h1>
-      <h2 class="card-jobtitle">Full stack developer</h2>
+      <img class="card-avatar" src="{{usuario.fotoPerfil}}" alt="avatar">
+      <h1 class="card-fullname">{{usuario.apellido}}</h1>
+      <h2 class="card-jobtitle">{{usuario.titulo}}</h2>
     </div>
     <div class="card-main">
       <div class="card-section is-active" id="about">
         <div class="card-content">
           <div class="card-subtitle">ACERCA DE MI</div>
-          <p class="card-desc">Mi nombre es Melisa, programadora full stack en progreso. Este es mi portfolio de presentación final.
-          </p>
+          <p class="card-desc">{{usuario.descripcion}}</p>
         </div>
         <div class="card-social">
         </div>

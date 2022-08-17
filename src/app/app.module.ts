@@ -8,6 +8,7 @@ import { ExperiencialaboralComponent } from './experiencialaboral/experiencialab
 import { InicioComponent } from './inicio/inicio.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SkillsComponent } from './skills/skills.component';
 
 
 
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
       ContactoComponent,
       EstudiosComponent,
       ExperiencialaboralComponent,
-      InicioComponent      
+      InicioComponent,
+      SkillsComponent      
    ],
   imports: [
     BrowserModule,

@@ -1,19 +1,26 @@
-<div class="container">
-    <div class="row">
+
+    <div class="text-center">
+        <button type="button" class="btn btn-success" (click)="onOpenModal('add')">
+             <a class="nav-link" style="color: aliceblue">
+             añadir educación<span class="sr-only"> (current) </span>
+             </a>
+        </button>
+    </div>
+    <div class="container">
+    <div class="row" *ngFor="let estudio of education">
         <div class="col-md-12" >
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title">Estudios</h6>
                     <div id="content">
                         <ul class="timeline">
+                            <button type="button" class="btn btn-primary btn-sm" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="bi bi-pencil"></i></button>
+                            <button type="button" class="btn btn-secondary btn-sm" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="bi bi-trash"></i></button>
+
                             <li class="event" data-date="2021 - Actualidad">
-                                <h3>Full stack developer Jr. - Argentina Programa</h3>
-                                <p>Formación para el desarrollo web tanto en frontend, como en backend, abarcando las siguientes tecnologías, HTML, CSS, Javascript, Angular, Base de datos, Java, Java Spring Boot
+                                <h3>{{estudio.tituloEdu}}</h3>
+                                <p>{{estudio.descEdu}}</p>
                                 
-                            </li>
-                            <li class="event" data-date="2021 - Actualidad">
-                                <h3>Angular - Udemy</h3>
-                                <p> Implementación del framework de Angular, arquitectura, directivas y componentes, databinding, enrutamiento (routing) y manejo de navegación. </p>
                             </li>
                             </ul>
                     </div>
@@ -22,71 +29,7 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h6 class="card-title">Hard skills</h6>
-                    <div id="content1">
-                        <div class="skills">
-
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg"/>
-<div class="progress-bar">
-    <div class="html"><span>85%</span></div>
+<div>
+    <app-skills></app-skills>
 </div>
 
-
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" />          
-<div class="progress-bar">
-    <div class="css"><span>65%</span></div>
-</div>
-
-
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />          
-<div class="progress-bar">
-    <div class="javascript"><span>65%</span></div>
-</div>
-
-
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />          
-<div class="progress-bar">
-    <div class="typescript"><span>50%</span></div>
-</div>
-
-
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain-wordmark.svg" />          
-<div class="progress-bar">
-    <div class="bootstrap"><span>85%</span></div>
-</div>
-
-
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg" />          
-<div class="progress-bar">
-    <div class="angular"><span>70%</span></div>
-</div>
-
-
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" />          
-<div class="progress-bar">
-    <div class="java"><span>50%</span></div>
-</div>
-
-
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" />          
-<div class="progress-bar">
-    <div class="node"><span>55%</span></div>
-</div>
-
-
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-plain.svg" />          
-<div class="progress-bar">
-    <div class="spring"><span>55%</span></div>
-</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
