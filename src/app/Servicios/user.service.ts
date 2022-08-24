@@ -10,6 +10,12 @@ import { Usuario } from '../Models/User';
 })
 
 export class UsuarioService {
+  addUsuario(value: any) {
+    throw new Error('Method not implemented.');
+  }
+  deleteUsuario(id: number) {
+    throw new Error('Method not implemented.');
+  }
   private apiServerUrl=environment.apiBaseUrl;
 
   constructor(private http:HttpClient){ }

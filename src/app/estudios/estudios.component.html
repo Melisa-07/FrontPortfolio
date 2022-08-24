@@ -1,35 +1,311 @@
-
-    <div class="text-center">
-        <button type="button" class="btn btn-success" (click)="onOpenModal('add')">
-             <a class="nav-link" style="color: aliceblue">
-             añadir educación<span class="sr-only"> (current) </span>
-             </a>
+<div class="row edu main-container">
+  <div class="container">
+    <button class="button-añadirEduc" (click)="onOpenModal('add')">
+      Añadir educación
+    </button>
+    <a class="nav-link" style="color: rgb(239, 241, 243)">
+      <span class="sr-only"> (current) </span>
+    </a>
+  </div>
+  <div id="main-container"></div>
+</div>
+<!--Add Modal-->
+<div
+  class="modal fade"
+  id="addEducationModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="addEducationModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addEducationModalLabel">
+          Añadir educación
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="close"
+        >
+          <span aria-hidden="true">&times;</span>
         </button>
-    </div>
-    <div class="container">
-    <div class="row" *ngFor="let estudio of education">
-        <div class="col-md-12" >
-            <div class="card">
-                <div class="card-body">
-                    <h6 class="card-title">Estudios</h6>
-                    <div id="content">
-                        <ul class="timeline">
-                            <button type="button" class="btn btn-primary btn-sm" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="bi bi-pencil"></i></button>
-                            <button type="button" class="btn btn-secondary btn-sm" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="bi bi-trash"></i></button>
+      </div>
+      <div class="modal-body">
+        <form #addForm="ngForm" (ngSubmit)="onAddEducation(addForm)">
+          <div class="form-group">
+            <label for="tituloEdu">Título</label>
+            <input
+              type="text"
+              ngModel
+              name="tituloEdu"
+              class="form-control"
+              id="tituloEdu"
+              placeholder="Title"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="fechaEdu">Fecha de comienzo</label>
+            <input
+              type="text"
+              ngModel
+              name="fechaEdu"
+              class="form-control"
+              id="fechaEdu"
+              placeholder="Start date"
+              required
+            />
 
-                            <li class="event" data-date="2021 - Actualidad">
-                                <h3>{{estudio.tituloEdu}}</h3>
-                                <p>{{estudio.descEdu}}</p>
-                                
-                            </li>
-                            </ul>
-                    </div>
-                </div>
+            <div class="form-group">
+              <label for="descEdu">Descripción</label>
+              <input
+                type="text"
+                ngModel
+                name="descEdu"
+                class="form-control"
+                id="descEdu"
+                placeholder="Description"
+                required
+              />
             </div>
-        </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                id="add-education-form"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button
+                [disabled]="addForm.invalid"
+                type="submit"
+                class="btn btn-primary"
+              >
+                Guardar cambios
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
-<div>
-    <app-skills></app-skills>
+  </div>
 </div>
 
+<!--Edit modal-->
+<div
+  class="modal fade"
+  id="editEducationModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="educationEditModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateEducationModalLabel">
+          Editar educación {{ editEducation?.tituloEdu }}
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm">
+          <div class="form-group">
+            <label for="name">Título</label>
+            <input
+              type="text"
+              ngModel="{{ editEducation?.tituloEdu }}"
+              name="tituloEdu"
+              class="form-control"
+              id="tituloEdu"
+              aria-describedby="emailHelp"
+              placeholder="Title"
+            />
+          </div>
+          <input
+            type="hidden"
+            ngModel="{{ editEducation?.idEdu }}"
+            name="idEdu"
+            class="form-control"
+            id="idEdu"
+            placeholder=""
+          />
+          <div class="form-group">
+            <label for="descEdu">Descripción</label>
+            <input
+              type="text"
+              ngModel="{{ editEducation?.descEdu }}"
+              name="descEdu"
+              class="form-control"
+              id="descEdu"
+              placeholder="description"
+            />
+            <div class="form-group">
+              <label for="phone">Fecha de comienzo</label>
+              <input
+                type="text"
+                ngModel="{{ editEducation?.fechaEdu }}"
+                name="fechaEdu"
+                class="form-control"
+                id="fechaEdu"
+                placeholder="Job title"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                id=""
+                data-dismiss="modal"
+                class="btn btn-secondary"
+              >
+                Cerrar
+              </button>
+              <button
+                (click)="onUpdateEducation(editForm.value)"
+                data-dismiss="modal"
+                class="btn btn-primary"
+              >
+                Guardar cambios
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Delete modal-->
+<div
+  data-bs-toggle="modal"
+  data-bs-target="#deleteModelLabel"
+  class="modal fade"
+  id="deleteEducationModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="deleteModelLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModelLabel">Borrar educación</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Deseas continuar eliminando? {{ deleteEducation?.tituloEdu }}</p>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            No
+          </button>
+          <button
+            (click)="onDeleteEducation(deleteEducation!.idEdu)"
+            class="btn btn-danger"
+            data-dismiss="modal"
+          >
+            Si
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Notification-->
+<div *ngIf="education?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Oh my!</strong> No hay elementos añadidos.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+
+<!--HTML inicial-->
+
+<div class="container">
+  <div class="row" *ngFor="let educ of education">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-end">
+            <button
+              type="button"
+              class="btn btn-info"
+              (click)="onOpenModal('edit', educ)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-pencil"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"
+                />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="onOpenModal('delete', educ)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-trash"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="card-title">
+            <h6>{{ educ.tituloEdu }}</h6>
+            <div id="content">
+              <ul class="timeline">
+                <li class="event" data-date="2021 - Actualidad">
+                  <p>{{ educ.descEdu }}</p>
+                  <div class="container">
+                    <div class="row align-items-right"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <app-skills></app-skills>
+</div>

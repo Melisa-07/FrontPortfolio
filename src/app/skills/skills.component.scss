@@ -1,208 +1,205 @@
 .content1 {
-    width: 100%;
-    height: 100vh;
-    background: #727cf5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
+  width: 100%;
+  height: 100vh;
+  background: #727cf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-.skills h2{
- font-weight: 400;
- letter-spacing: 1px;
- margin-top: 20px;
- margin-bottom: 5px;
- font-size: 16px;
- 
+.skills h2 {
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 16px;
 }
 
 .progress-bar {
-    background: #c5c9f5;
-    width: 500px;
-    height: 10px;
-    border-radius: 5px;
+  background: #c5c9f5;
+  width: 500px;
+  height: 10px;
+  border-radius: 5px;
 }
 
 .progress-bar div {
-    height: 10px;
-    border-radius: 5px;
-    width: 0%;
-
-
+  height: 10px;
+  border-radius: 5px;
+  width: 0%;
 }
 
 .progress-bar div span {
-    height: 40px ;
-    width:40px;
-    border-radius: 50%;
-    background: #fff ;
-    float: right;
-    margin-top: -15px;
-    margin-right: -20px;
-    color: #333;
-    display: flex ;
-    align-items: center;
-    justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: #fff;
+  float: right;
+  margin-top: -15px;
+  margin-right: -20px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .html {
-    background-color: #f7c737 ;
-    animation: html 1s linear forwards;
+  background-color: #f7c737;
+  animation: html 1s linear forwards;
 }
 
 .css {
-    background-color: #72d3e4;
-    animation: css 1s linear forwards;
+  background-color: #72d3e4;
+  animation: css 1s linear forwards;
 }
 
 .javascript {
-    background-color: #d9f560 ;
-    animation: javascript 1s linear forwards;
+  background-color: #d9f560;
+  animation: javascript 1s linear forwards;
 }
 
 .typescript {
-    background-color: #9da4f1;
-    animation: typescript 1s linear forwards;
+  background-color: #9da4f1;
+  animation: typescript 1s linear forwards;
 }
 
 .bootstrap {
-    background-color: #b2b2b2 ;
-    animation: bootstrap 1s linear forwards;
+  background-color: #b2b2b2;
+  animation: bootstrap 1s linear forwards;
 }
 
 .angular {
-    background-color: #d2082d;
-    animation: angular 1s linear forwards;
+  background-color: #d2082d;
+  animation: angular 1s linear forwards;
 }
 
 .java {
-    background-color: #f33747;
-    animation: java 1s linear forwards;
+  background-color: #f33747;
+  animation: java 1s linear forwards;
 }
 
 .node {
-    background-color: #b2c891 ;
-    animation: node 1s linear forwards;
+  background-color: #b2c891;
+  animation: node 1s linear forwards;
 }
 
 .spring {
-    background: #67bd99;
-    animation: spring 1s linear forwards;
+  background: #67bd99;
+  animation: spring 1s linear forwards;
 }
 
-.html span{
+.html span {
   border: 1px solid #727cf5;
 }
 
-.css span{
-    border: 1px solid #727cf5;
-  }
-
-.javascript span{
-    border: 1px solid #727cf5;
-  }
-
-.typescript span{
-    border: 1px solid #727cf5;
-  }
-  
-.bootstrap span{
-    border: 1px solid #727cf5;
-  }
-  
-.angular span{
-    border: 1px solid #727cf5;
-  }
-
-.java span{
-    border: 1px solid #727cf5;
-  }
-
-.node span{
-    border: 1px solid #727cf5;
-  }
-
-.spring span{
-    border: 1px solid #727cf5;
-  }
-
-@keyframes html{
-    100%{
-        width: 50%;
-    }
+.css span {
+  border: 1px solid #727cf5;
 }
 
-@keyframes css{
-    100%{
-        width: 50%;
-    }
+.javascript span {
+  border: 1px solid #727cf5;
 }
 
-@keyframes javascript{
-    100%{
-        width: 45%;
-    }
+.typescript span {
+  border: 1px solid #727cf5;
 }
 
-@keyframes typescript{
-    100%{
-        width: 50%;
-    }
+.bootstrap span {
+  border: 1px solid #727cf5;
 }
 
-@keyframes bootstrap{
-    100%{
-        width: 65%;
-    }
+.angular span {
+  border: 1px solid #727cf5;
 }
 
-@keyframes angular{
-    100%{
-        width: 60%;
-    }
+.java span {
+  border: 1px solid #727cf5;
 }
 
-@keyframes java{
-    100%{
-        width: 50%;
-    }
+.node span {
+  border: 1px solid #727cf5;
 }
 
-@keyframes node{
-    100%{
-        width: 55%;
-    }
+.spring span {
+  border: 1px solid #727cf5;
 }
 
-@keyframes spring{
-    100%{
-        width: 55%;
-    }
+@keyframes html {
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes css {
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes javascript {
+  100% {
+    width: 45%;
+  }
+}
+
+@keyframes typescript {
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes bootstrap {
+  100% {
+    width: 65%;
+  }
+}
+
+@keyframes angular {
+  100% {
+    width: 60%;
+  }
+}
+
+@keyframes java {
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes node {
+  100% {
+    width: 55%;
+  }
+}
+
+@keyframes spring {
+  100% {
+    width: 55%;
+  }
 }
 
 img {
-    height: 35px;
-    width: 35px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-}
-
-
-@media (max-width: 767px) {
-    .container .skills   {
-        max-width: 98%;
-        padding: 25px;
-    }
+  height: 40px;
+  width: 40px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 @media (max-width: 767px) {
-     .progress-bar  {
-        max-width: 98%;
-        padding: 5px;
-        height: 5px;
-    }
+  .container .skills {
+    max-width: 98%;
+    padding: 25px;
+  }
+}
 
+@media (max-width: 767px) {
+  .progress-bar {
+    max-width: 98%;
+    padding: 5px;
+    height: 5px;
+  }
+}
 
+.d-flex {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
