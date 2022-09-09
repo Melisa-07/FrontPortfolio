@@ -10,9 +10,10 @@ import { WorkService } from '../Servicios/work.service';
   styleUrls: ['./experiencialaboral.component.scss'],
 })
 export class ExperiencialaboralComponent implements OnInit {
-  experiencia: any;
-  deleteExperiencia: Experiencia | any;
-  editExperiencia: Experiencia | any;
+  public experiencia: Experiencia[] = [];
+  public editExperiencia: Experiencia | any;
+  public deleteExperiencia: Experiencia | any;
+  public getEducation: any;
 
   constructor(private experienciaService: WorkService) {}
 
@@ -66,7 +67,7 @@ export class ExperiencialaboralComponent implements OnInit {
       next: (response: Experiencia) => {
         /* buscas el index de la educacion a editar*/
         let index = this.experiencia.findIndex(
-          (item: { id: any }) => item.id == response.idExp
+          (item) => item.id == response.idExp
         );
         /* modificas la educacion que se encuentra en el index que buscamos arriba */
         this.experiencia[index] = response;
@@ -83,9 +84,7 @@ export class ExperiencialaboralComponent implements OnInit {
       next: (response: void) => {
         console.log(response);
         /* buscas en el array el index de la educacion con el id que traes del back "idEdu" */
-        let index = this.experiencia.findIndex(
-          (item: { id: any }) => item.id == idExp
-        );
+        let index = this.experiencia.findIndex((item) => item.id == idExp);
         /* eliminas esa edu */
         this.experiencia.splice(index, 1);
         //this.getEducation();

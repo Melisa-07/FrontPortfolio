@@ -1,6 +1,7 @@
 export interface Experiencia {
-    idExp: number;
-    tituloExp: string;
-    fechaExp: number;
-    descExp: string;
- }
+  id: number;
+  idExp: number;
+  tituloExp: string;
+  fechaExp: number;
+  descExp: string;
+}

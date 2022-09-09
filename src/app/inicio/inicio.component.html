@@ -1,174 +1,187 @@
-<div class="container" *ngIf="usuario">
-  <div class="row edu main-container">
-    <div class="container"></div>
-    <div id="main-container"></div>
-  </div>
+<div>
+  <div *ngIf="persona | async as persona; else noUser">
+    <div class="row edu main-container">
+      <div class="container"></div>
+      <div id="main-container"></div>
+    </div>
 
-  <!--Edit modal-->
-  <div
-    class="modal fade"
-    id="editUsuarioModal"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="usuarioEditModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="updateUsuarioModalLabel">
-            Editar usuario {{ editUsuario?.titulo }}
-          </h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form #editForm="ngForm">
-            <div class="form-group">
-              <label for="name">Imagen</label>
+    <!--Edit modal-->
+    <div
+      class="modal fade"
+      id="editPersonaModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="personaEditModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updatePersonaModalLabel">
+              Editar persona
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form #editForm="ngForm">
               <input
+                hidden
                 type="text"
-                ngModel="{{ editUsuario?.fotoPerfil }}"
-                name="fotoPerfil"
-                class="form-control"
-                id="fotoPerfil"
-                placeholder="Image"
-              />
-            </div>
-            <div class="form-group">
-              <label for="name">Nombre</label>
-              <input
-                type="text"
-                ngModel="{{ editUsuario?.nombre }}"
-                name="nombre"
-                class="form-control"
-                id="nombre"
-                placeholder="Name"
+                name="id"
+                id="id"
+                ngModel="{{ editPersona?.id }}"
               />
               <div class="form-group">
-                <label for="lastName">Apellido</label>
+                <label for="name">Imagen</label>
                 <input
                   type="text"
-                  ngModel="{{ editUsuario?.apellido }}"
-                  name="apellido"
+                  ngModel="{{ editPersona?.fotoPerfil }}"
+                  name="fotoPerfil"
                   class="form-control"
-                  id="apellido"
-                  placeholder="Last name"
+                  id="fotoPerfil"
+                  placeholder="Image"
                 />
               </div>
-            </div>
-            <div class="form-group">
-              <label for="titulo">Título</label>
-              <input
-                type="text"
-                ngModel="{{ editUsuario?.titulo }}"
-                name="titulo"
-                class="form-control"
-                id="titulo"
-                aria-describedby="emailHelp"
-                placeholder="Title"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="phone">Acerca de mi</label>
-              <input
-                type="text"
-                ngModel="{{ editUsuario?.descripcion }}"
-                name="descripcion"
-                class="form-control"
-                id="descripcion"
-                placeholder="Description"
-              />
-
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  id=""
-                  data-dismiss="modal"
-                  class="btn btn-secondary"
-                >
-                  Cerrar
-                </button>
-                <button
-                  (click)="onUpdateUsuario(editForm.value)"
-                  data-dismiss="modal"
-                  class="btn btn-primary"
-                >
-                  Guardar cambios
-                </button>
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input
+                  type="text"
+                  ngModel="{{ editPersona?.nombre }}"
+                  name="nombre"
+                  class="form-control"
+                  id="nombre"
+                  placeholder="Name"
+                />
+                <div class="form-group">
+                  <label for="lastName">Apellido</label>
+                  <input
+                    type="text"
+                    ngModel="{{ editPersona?.apellido }}"
+                    name="apellido"
+                    class="form-control"
+                    id="apellido"
+                    placeholder="Last name"
+                  />
+                </div>
               </div>
-            </div>
-          </form>
+              <div class="form-group">
+                <label for="titulo">Título</label>
+                <input
+                  type="text"
+                  ngModel="{{ editPersona?.titulo }}"
+                  name="titulo"
+                  class="form-control"
+                  id="titulo"
+                  aria-describedby="emailHelp"
+                  placeholder="Title"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Acerca de mi</label>
+                <input
+                  type="text"
+                  ngModel="{{ editPersona?.descripcion }}"
+                  name="descripcion"
+                  class="form-control"
+                  id="descripcion"
+                  placeholder="Description"
+                />
+
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    id=""
+                    data-dismiss="modal"
+                    class="btn btn-secondary"
+                  >
+                    Cerrar
+                  </button>
+                  <button
+                    (click)="onUpdatePersona(editForm.value)"
+                    data-dismiss="modal"
+                    class="btn btn-primary"
+                  >
+                    Guardar cambios
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="d-flex justify-content-end">
-    <button
-      type="button"
-      class="btn btn-info"
-      (click)="onOpenModal('edit', usuario)"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-pencil"
-        viewBox="0 0 16 16"
+    <div class="d-flex justify-content-end">
+      <button
+        type="button"
+        class="btn btn-info"
+        (click)="onOpenModal('edit', persona)"
       >
-        <path
-          d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"
-        />
-      </svg>
-    </button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-pencil"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <div class="card" data-state="#about">
+      <div class="card-header">
+        <div class="card-cover"></div>
+        <img class="card-avatar" src="{{ persona.fotoPerfil }}" alt="avatar" />
+        <h1 class="card-fullname">
+          {{ persona.apellido }} {{ persona.nombre }}
+        </h1>
+        <h2 class="card-jobtitle">{{ persona.titulo }}</h2>
+      </div>
+      <div class="card-main">
+        <div class="card-section is-active" id="about">
+          <div class="card-content">
+            <div class="card-subtitle">ACERCA DE MI</div>
+            <p class="card-desc">{{ persona.descripcion }}</p>
+          </div>
+          <div class="card-social"></div>
+        </div>
+        <div class="card-buttons">
+          <button
+            [routerLink]="['estudios']"
+            data-section="#about"
+            routerLinkActive="is-active"
+          >
+            ESTUDIOS
+          </button>
+          <button
+            [routerLink]="['experiencia']"
+            data-section="#experience"
+            routerLinkActive="is-active"
+          >
+            EXPERIENCIA LABORAL
+          </button>
+          <button
+            [routerLink]="['contacto']"
+            data-section="#contact"
+            routerLinkActive="is-active"
+          >
+            CONTACTO
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="card" data-state="#about">
-    <div class="card-header">
-      <div class="card-cover"></div>
-      <img class="card-avatar" src="{{ usuario.fotoPerfil }}" alt="avatar" />
-      <h1 class="card-fullname">{{ usuario.apellido }} {{ usuario.nombre }}</h1>
-      <h2 class="card-jobtitle">{{ usuario.titulo }}</h2>
-    </div>
-    <div class="card-main">
-      <div class="card-section is-active" id="about">
-        <div class="card-content">
-          <div class="card-subtitle">ACERCA DE MI</div>
-          <p class="card-desc">{{ usuario.descripcion }}</p>
-        </div>
-        <div class="card-social"></div>
-      </div>
-      <div class="card-buttons">
-        <button
-          [routerLink]="['estudios']"
-          data-section="#about"
-          routerLinkActive="is-active"
-        >
-          ESTUDIOS
-        </button>
-        <button
-          [routerLink]="['experiencia']"
-          data-section="#experience"
-          routerLinkActive="is-active"
-        >
-          EXPERIENCIA LABORAL
-        </button>
-        <button
-          [routerLink]="['contacto']"
-          data-section="#contact"
-          routerLinkActive="is-active"
-        >
-          CONTACTO
-        </button>
-      </div>
-    </div>
-  </div>
+  <ng-template #noUser> </ng-template>
 </div>

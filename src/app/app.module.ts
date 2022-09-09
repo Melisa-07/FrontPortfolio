@@ -9,6 +9,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SkillsComponent } from './skills/skills.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SkillsComponent } from './skills/skills.component';
     ExperiencialaboralComponent,
     InicioComponent,
     SkillsComponent,
+    LoginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
