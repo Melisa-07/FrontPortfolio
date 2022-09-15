@@ -1,5 +1,5 @@
 <div class="text-center" *ngIf="isLogged; else loggedOut">
-  <h2>Ya has iniciado sesión</h2>
+  <h2>Already logged in</h2>
 </div>
 
 <ng-template #loggedOut>
@@ -50,6 +50,12 @@
                 />
               </div>
             </form>
+            <div
+              *ngIf="f.submitted && isLoginFail"
+              class="alert alert-danger mt-3"
+            >
+              Error en el login: {{ errorMessage }}
+            </div>
           </div>
         </div>
       </div>

@@ -42,6 +42,16 @@
   justify-content: center;
 }
 
+.github {
+  background-color: #030806;
+  animation: github 1s linear forwards;
+}
+
+.ingles {
+  background-color: #37f79d;
+  animation: ingles 1s linear forwards;
+}
+
 .html {
   background-color: #f7c737;
   animation: html 1s linear forwards;
@@ -87,6 +97,14 @@
   animation: spring 1s linear forwards;
 }
 
+.ingles span {
+  border: 1px solid #727cf5;
+}
+
+.github span {
+  border: 1px solid #727cf5;
+}
+
 .html span {
   border: 1px solid #727cf5;
 }
@@ -121,6 +139,18 @@
 
 .spring span {
   border: 1px solid #727cf5;
+}
+
+@keyframes ingles {
+  100% {
+    width: 70%;
+  }
+}
+
+@keyframes github {
+  100% {
+    width: 50%;
+  }
 }
 
 @keyframes html {

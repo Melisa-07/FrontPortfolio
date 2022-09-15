@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SkillsComponent } from './skills/skills.component';
 import { LoginComponent } from './auth/login/login.component';
+import { interceptorProvider } from './interceptors/prod-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { LoginComponent } from './auth/login/login.component';
     LoginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,10 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
 .d-flex {
-  flex-direction: flex-column;
-  flex: md-row;
   align-items: center;
   padding: p-3 px-md-4 mb-3;
   background-color: white;
@@ -28,6 +22,7 @@
   display: flex;
   align-items: center;
   padding: 20px;
+  padding-bottom: 10px;
 
   svg {
     fill: #8a84ff;
@@ -66,7 +61,9 @@
   background: 0;
   font-size: 17px;
   border: 0;
-  padding: 15px 30px;
+  padding: 10px 10px;
+  margin-top: -7px;
+  margin-bottom: 5px;
   cursor: pointer;
   color: #8a84ff;
   transition: 0.3s;
@@ -94,13 +91,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
+  overflow: hidden;
 }
 
 .card {
   max-width: 340px;
   margin: auto;
   margin-top: 40px;
-  overflow-y: auto;
+  overflow-y: hidden;
   position: relative;
   z-index: 1;
   overflow-x: hidden;
@@ -292,4 +290,34 @@ body {
       );
     }
   }
+}
+
+.button-editarPersona {
+  border: none;
+  font-family: "Roboto";
+  font-size: 17px;
+  background: transparent;
+  color: #727cf5;
+  border: solid 1px #727cf5;
+  padding: 10px;
+  border-radius: 4px;
+  transition-duration: 0.2s;
+}
+
+.button-editarPersona:before {
+  content: "+";
+  opacity: 0;
+  margin-left: -15px;
+  transition-duration: 0.2s;
+}
+
+.button-editarPersona:hover:before {
+  margin-left: 0px;
+  opacity: 1;
+}
+
+.button-editarPersona:hover {
+  color: black;
+  background: rgba(0, 0, 0, 0.02);
+  border: solid 1px gainsboro;
 }

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Persona } from '../Models/Persona';
 import { PersonaService } from '../Servicios/persona.service';
 import { Observable } from 'rxjs';
+import { TokenService } from '../Servicios/token.service';
 
 @Component({
   selector: 'app-inicio',
@@ -12,11 +13,22 @@ import { Observable } from 'rxjs';
 export class InicioComponent implements OnInit {
   persona: Observable<Persona>;
   editPersona: Persona | any;
+  roles!: string[];
+  isAdmin: boolean = false;
 
-  constructor(private personaService: PersonaService) {}
+  constructor(
+    private personaService: PersonaService,
+    private tokenService: TokenService
+  ) {}
 
   ngOnInit(): void {
     this.persona = this.personaService.getPersona();
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach((role) => {
+      if (role === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
     console.log(this.persona);
   }
 

@@ -13,12 +13,13 @@
       role="dialog"
       aria-labelledby="personaEditModalLabel"
       aria-hidden="true"
+      *ngIf="isAdmin"
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="updatePersonaModalLabel">
-              Editar persona
+              Edit profile
             </h5>
             <button
               type="button"
@@ -39,7 +40,7 @@
                 ngModel="{{ editPersona?.id }}"
               />
               <div class="form-group">
-                <label for="name">Imagen</label>
+                <label for="name">Image</label>
                 <input
                   type="text"
                   ngModel="{{ editPersona?.fotoPerfil }}"
@@ -50,7 +51,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="name">Nombre</label>
+                <label for="name">Name</label>
                 <input
                   type="text"
                   ngModel="{{ editPersona?.nombre }}"
@@ -60,7 +61,7 @@
                   placeholder="Name"
                 />
                 <div class="form-group">
-                  <label for="lastName">Apellido</label>
+                  <label for="lastName">Last name</label>
                   <input
                     type="text"
                     ngModel="{{ editPersona?.apellido }}"
@@ -72,7 +73,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="titulo">Título</label>
+                <label for="titulo">Title</label>
                 <input
                   type="text"
                   ngModel="{{ editPersona?.titulo }}"
@@ -85,7 +86,7 @@
               </div>
 
               <div class="form-group">
-                <label for="phone">Acerca de mi</label>
+                <label for="phone">About me</label>
                 <input
                   type="text"
                   ngModel="{{ editPersona?.descripcion }}"
@@ -102,14 +103,15 @@
                     data-dismiss="modal"
                     class="btn btn-secondary"
                   >
-                    Cerrar
+                    Close
                   </button>
+                  
                   <button
                     (click)="onUpdatePersona(editForm.value)"
                     data-dismiss="modal"
                     class="btn btn-primary"
                   >
-                    Guardar cambios
+                    Save
                   </button>
                 </div>
               </div>
@@ -118,12 +120,14 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-center">
       <button
+        *ngIf="isAdmin"
         type="button"
-        class="btn btn-info"
+        class="button-editarPersona"
         (click)="onOpenModal('edit', persona)"
       >
+      Edit profile
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -149,9 +153,10 @@
         <h2 class="card-jobtitle">{{ persona.titulo }}</h2>
       </div>
       <div class="card-main">
+        
         <div class="card-section is-active" id="about">
           <div class="card-content">
-            <div class="card-subtitle">ACERCA DE MI</div>
+            <div class="card-subtitle">ABOUT ME</div>
             <p class="card-desc">{{ persona.descripcion }}</p>
           </div>
           <div class="card-social"></div>
@@ -162,21 +167,21 @@
             data-section="#about"
             routerLinkActive="is-active"
           >
-            ESTUDIOS
+            EDUCATION
           </button>
           <button
             [routerLink]="['experiencia']"
             data-section="#experience"
             routerLinkActive="is-active"
           >
-            EXPERIENCIA LABORAL
+            WORK EXPERIENCE
           </button>
           <button
             [routerLink]="['contacto']"
             data-section="#contact"
             routerLinkActive="is-active"
           >
-            CONTACTO
+            CONTACT
           </button>
         </div>
       </div>

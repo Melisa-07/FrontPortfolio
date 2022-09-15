@@ -18,13 +18,15 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   errorMessage!: string;
 
+  
+
   constructor(
     private tokenService: TokenService,
     private authService: AuthService,
     private router: Router
   ) {}
 
-  inicio() {
+  home() {
     this.router.navigate(['']);
   }
 
@@ -42,7 +44,6 @@ export class LoginComponent implements OnInit {
       next: (data) => {
         this.isLogged = true;
         this.isLoginFail = false;
-
         this.tokenService.setToken(data.token);
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
@@ -52,9 +53,8 @@ export class LoginComponent implements OnInit {
       error: (err) => {
         this.isLogged = false;
         this.isLoginFail = true;
-        console.log(err);
         this.errorMessage = err.error.message;
-        console.log(err.error.message);
+        console.log(err);
       },
     });
   }

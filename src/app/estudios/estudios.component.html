@@ -1,7 +1,11 @@
 <div class="row edu main-container">
   <div class="container">
-    <button class="button-añadirEduc" (click)="onOpenModal('add')">
-      Añadir educación
+    <button
+      class="button-añadirEduc"
+      (click)="onOpenModal('add')"
+      *ngIf="isAdmin"
+    >
+      Add education
     </button>
     <a class="nav-link" style="color: rgb(239, 241, 243)">
       <span class="sr-only"> (current) </span>
@@ -22,7 +26,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addEducationModalLabel">
-          Añadir educación
+          Add education
         </h5>
         <button
           type="button"
@@ -36,7 +40,7 @@
       <div class="modal-body">
         <form #addForm="ngForm" (ngSubmit)="onAddEducation(addForm)">
           <div class="form-group">
-            <label for="tituloEdu">Título</label>
+            <label for="tituloEdu">Title</label>
             <input
               type="text"
               ngModel
@@ -48,7 +52,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="fechaEdu">Fecha de comienzo</label>
+            <label for="fechaEdu">Start date</label>
             <input
               type="text"
               ngModel
@@ -60,7 +64,7 @@
             />
 
             <div class="form-group">
-              <label for="descEdu">Descripción</label>
+              <label for="descEdu">Description</label>
               <input
                 type="text"
                 ngModel
@@ -78,14 +82,14 @@
                 class="btn btn-secondary"
                 data-dismiss="modal"
               >
-                Cerrar
+                Close
               </button>
               <button
                 [disabled]="addForm.invalid"
                 type="submit"
                 class="btn btn-primary"
               >
-                Guardar cambios
+                Save
               </button>
             </div>
           </div>
@@ -108,7 +112,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="updateEducationModalLabel">
-          Editar educación {{ editEducation?.tituloEdu }}
+          Edit education {{ editEducation?.tituloEdu }}
         </h5>
         <button
           type="button"
@@ -122,7 +126,7 @@
       <div class="modal-body">
         <form #editForm="ngForm">
           <div class="form-group">
-            <label for="name">Título</label>
+            <label for="name">Title</label>
             <input
               type="text"
               ngModel="{{ editEducation?.tituloEdu }}"
@@ -142,7 +146,7 @@
             placeholder=""
           />
           <div class="form-group">
-            <label for="descEdu">Descripción</label>
+            <label for="descEdu">Description</label>
             <input
               type="text"
               ngModel="{{ editEducation?.descEdu }}"
@@ -152,7 +156,7 @@
               placeholder="description"
             />
             <div class="form-group">
-              <label for="phone">Fecha de comienzo</label>
+              <label for="phone">Start date</label>
               <input
                 type="text"
                 ngModel="{{ editEducation?.fechaEdu }}"
@@ -169,14 +173,14 @@
                 data-dismiss="modal"
                 class="btn btn-secondary"
               >
-                Cerrar
+                Close
               </button>
               <button
                 (click)="onUpdateEducation(editForm.value)"
                 data-dismiss="modal"
                 class="btn btn-primary"
               >
-                Guardar cambios
+                Save
               </button>
             </div>
           </div>
@@ -199,7 +203,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="deleteModelLabel">Borrar educación</h5>
+        <h5 class="modal-title" id="deleteModelLabel">Delete education</h5>
         <button
           type="button"
           class="close"
@@ -210,7 +214,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Deseas continuar eliminando? {{ deleteEducation?.tituloEdu }}</p>
+        <p>Do you want to delete? {{ deleteEducation?.tituloEdu }}</p>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             No
@@ -220,7 +224,7 @@
             class="btn btn-danger"
             data-dismiss="modal"
           >
-            Si
+            Yes
           </button>
         </div>
       </div>
@@ -230,7 +234,7 @@
 <!--Notification-->
 <div *ngIf="education?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Oh my!</strong> No hay elementos añadidos.
+    <strong>Oh my!</strong> There is no elements.
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -246,6 +250,7 @@
         <div class="card-body">
           <div class="d-flex justify-content-end">
             <button
+              *ngIf="isAdmin"
               type="button"
               class="btn btn-info"
               (click)="onOpenModal('edit', educ)"
@@ -265,6 +270,7 @@
             </button>
 
             <button
+              *ngIf="isAdmin"
               type="button"
               class="btn btn-danger"
               (click)="onOpenModal('delete', educ)"
@@ -291,7 +297,7 @@
             <h6>{{ educ.tituloEdu }}</h6>
             <div id="content">
               <ul class="timeline">
-                <li class="event" data-date="2021 - Actualidad">
+                <li class="event" data-date="2021 - Present">
                   <p>{{ educ.descEdu }}</p>
                   <div class="container">
                     <div class="row align-items-right"></div>
