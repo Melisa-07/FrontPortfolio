@@ -1,6 +1,6 @@
 <div class="row edu main-container">
   <div class="container">
-    <button
+    <button 
       class="button-añadirExp"
       (click)="onOpenModal('add')"
       *ngIf="isAdmin"
@@ -107,6 +107,7 @@
   role="dialog"
   aria-labelledby="experienciaEditModalLabel"
   aria-hidden="true"
+  *ngIf="isAdmin"
 >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -125,6 +126,13 @@
       </div>
       <div class="modal-body">
         <form #editForm="ngForm">
+          <input
+          hidden
+          type="text"
+          name="id"
+          id="id"
+          ngModel="{{ editExperiencia?.id }}"
+        />
           <div class="form-group">
             <label for="name">Title</label>
             <input
@@ -291,10 +299,10 @@
               </svg>
             </button>
           </div>
-          <h6 class="card-title">{{ exp.tituloExp }}</h6>
+          <h6 class="card-title">{{ exp.tituloExp }} {{exp.fechaExp}}</h6>
           <div id="content">
             <ul class="timeline">
-              <li class="event" data-date="2020 - Present">
+              <li class="event" >
                 <p>{{ exp.descExp }}</p>
               </li>
             </ul>

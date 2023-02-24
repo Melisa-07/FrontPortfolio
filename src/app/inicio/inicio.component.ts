@@ -48,24 +48,6 @@ export class InicioComponent implements OnInit {
   }
 
   public onUpdatePersona(user: Persona) {
-    /* this.editPersona = persona;
-  // document.getElementById('add-experiencia-form')?.click();
-  this.personaService.updateUsuario(persona).subscribe({
-    next: (response: Persona) => {
-      // buscas el index de la educacion a editar
-      let index = this.persona.findIndex(
-        (item: { id: number; }) => item.id == response.id
-      );
-      // modificas la educacion que se encuentra en el index que buscamos arriba
-      this.persona[index] = response;
-      console.log(response);
-      //this.getEducation();
-    },
-    error: (error: HttpErrorResponse) => {
-      alert(error.message);
-    },
-  }); */
-
     this.persona = this.personaService.updatePersona(user);
   }
 }

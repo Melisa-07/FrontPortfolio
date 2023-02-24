@@ -107,13 +107,4 @@ export class EstudiosComponent implements OnInit {
     });
   }
 }
-// public getEducations():void{
-//   this.educationService.getEducation().subscribe({
-//     next:(Response:Educacion[]) =>{
-//       this.educations=Response;
-//     },
-//     error:(error:HttpErrorResponse)=>{
-//       alert(error.message);
-//     }
-//   })
-// }
+

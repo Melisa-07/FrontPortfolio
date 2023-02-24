@@ -5,6 +5,7 @@ import { Experiencia } from '../Models/Work';
 import { WorkService } from '../Servicios/work.service';
 import { TokenService } from '../Servicios/token.service';
 
+
 @Component({
   selector: 'app-experiencialaboral',
   templateUrl: './experiencialaboral.component.html',
@@ -15,7 +16,7 @@ export class ExperiencialaboralComponent implements OnInit {
   public editExperiencia: Experiencia | any;
   public deleteExperiencia: Experiencia | any;
   public getExperiencia: any;
-  roles!: string[];
+  roles: string[] = [];
   isAdmin: boolean = false;
 
   constructor(

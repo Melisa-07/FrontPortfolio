@@ -107,6 +107,7 @@
   role="dialog"
   aria-labelledby="educationEditModalLabel"
   aria-hidden="true"
+  *ngIf="isAdmin"
 >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -125,6 +126,13 @@
       </div>
       <div class="modal-body">
         <form #editForm="ngForm">
+          <input
+          hidden
+          type="text"
+          name="id"
+          id="id"
+          ngModel="{{ editEducation?.id }}"
+        />
           <div class="form-group">
             <label for="name">Title</label>
             <input
@@ -294,10 +302,10 @@
             </button>
           </div>
           <div class="card-title">
-            <h6>{{ educ.tituloEdu }}</h6>
+            <h6>{{ educ.tituloEdu }} {{educ.fechaEdu}}</h6>
             <div id="content">
               <ul class="timeline">
-                <li class="event" data-date="2021 - Present">
+                <li class="event" >
                   <p>{{ educ.descEdu }}</p>
                   <div class="container">
                     <div class="row align-items-right"></div>
