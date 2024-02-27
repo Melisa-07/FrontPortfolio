@@ -7,7 +7,7 @@ import { ExperiencialaboralComponent } from './experiencialaboral/experiencialab
 import { InicioComponent } from './inicio/inicio.component';
 
 const routes: Routes = [
-  { path: 'inicio', component: InicioComponent },
+  { path: '', component: InicioComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contacto', component: ContactoComponent },
   { path: 'estudios', component: EstudiosComponent },
